@@ -1,13 +1,13 @@
-# main.py
+
 import asyncio
 import os
 from aiogram import Bot, Dispatcher
 
-# Импорт из созданных модулей
+
 from handlers import cmd_start, handle_photo
 from utils import setup_logging, BOT_TOKEN
 
-# --- НАСТРОЙКИ ---
+
 setup_logging()
 
 if not BOT_TOKEN:
@@ -16,11 +16,9 @@ if not BOT_TOKEN:
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-# Регистрация хендлеров
+
 dp.message.register(cmd_start)
 dp.message.register(handle_photo)
-
-# --- ЗАПУСК ---
 async def main():
     try:
         await dp.start_polling(bot)

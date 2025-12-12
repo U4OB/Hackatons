@@ -1,4 +1,4 @@
-# handlers.py
+
 import logging
 from aiogram import Bot, Dispatcher, F, types
 from aiogram.filters import Command
@@ -49,9 +49,9 @@ async def handle_photo(message: types.Message, bot: Bot):
     await msg.delete()
     
     if final_result.startswith("❌"):
-        # Если process_user_photo вернула ошибку
+        
         await message.answer(final_result)
     else:
-        # Если process_user_photo вернула путь к файлу
+        
         caption_text = "✨ Готово! Фото прошло полную 4-этапную обработку: цветокоррекция, улучшение лица, коррекция фона и финальная настройка."
         await message.answer_photo(FSInputFile(final_result), caption=caption_text)
